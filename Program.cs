@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("안녕하세요!"[2]); // 간단한 문자열 출력
+        int a = 52;
+        Console.WriteLine(a + 34); // 간단한 문자열 출력
         
     }
 }
