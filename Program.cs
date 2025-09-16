@@ -4,31 +4,27 @@ class Program
 {
     static void Main(string[] args)
     {
-
-        int num = 7;
-        String? str = num.ToString();
-        Console.WriteLine("str={0}", str);
-        Console.WriteLine("str{0}", str.GetType());
-        String? val = Convert.ToString(num);
-        Console.WriteLine("val={0}", val);
-        int score = 0;
-        Console.Write("점수입력=");
-        switch(Console.ReadLine())
+        Console.Write("이름을 입력해주세요: ");
+        string name = Console.ReadLine();
+        Console.Write("점수를 입력해주세요: ");
+        int score = int.Parse(Console.ReadLine());
+        switch (score)
         {
-            case "A":
-                score = 100;
+            case >= 90:
+                Console.WriteLine($"{name}님의 학점은 A입니다.");
                 break;
-            case "B":
-                score = 80;
+            case >= 80:
+                Console.WriteLine($"{name}님의 학점은 B입니다.");
                 break;
-            case "C":
-                score = 70;
+            case >= 70:
+                Console.WriteLine($"{name}님의 학점은 C입니다.");
+                break;
+            case >= 60:
+                Console.WriteLine($"{name}님의 학점은 D입니다.");
                 break;
             default:
-                score = 60;
+                Console.WriteLine($"{name}님의 학점은 F입니다.");
                 break;
         }
-
-        Console.WriteLine("점수={0}", score);
     }
 }
