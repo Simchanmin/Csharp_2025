@@ -4,27 +4,31 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("이름을 입력해주세요: ");
-        string name = Console.ReadLine();
-        Console.Write("점수를 입력해주세요: ");
-        int score = int.Parse(Console.ReadLine());
-        switch (score)
-        {
-            case >= 90:
-                Console.WriteLine($"{name}님의 학점은 A입니다.");
-                break;
-            case >= 80:
-                Console.WriteLine($"{name}님의 학점은 B입니다.");
-                break;
-            case >= 70:
-                Console.WriteLine($"{name}님의 학점은 C입니다.");
-                break;
-            case >= 60:
-                Console.WriteLine($"{name}님의 학점은 D입니다.");
-                break;
-            default:
-                Console.WriteLine($"{name}님의 학점은 F입니다.");
-                break;
-        }
+        int score = 0;
+        int english = 0;
+        int physics = 0;
+        int calculus = 0;
+        int average = 0;
+        String name = "";
+        String department = "";
+        Console.Write("이름을 입력하세요:");
+        name = Console.ReadLine();
+        Console.Write("학과를 입력하세요:");
+        department = Console.ReadLine();
+        Console.Write("영어 점수를 입력하세요:");
+        english = Convert.ToInt32(Console.ReadLine());
+        Console.Write("물리학 점수를 입력하세요:");
+        physics = Convert.ToInt32(Console.ReadLine());
+        Console.Write("미적분학 점수를 입력하세요:");
+        calculus = Convert.ToInt32(Console.ReadLine());
+        Console.Write("주소를 입력하세요:");
+        String address = Console.ReadLine();
+        score = english + physics + calculus;
+        average = score / 4;
+        Console.WriteLine("이름 = "+name+", 학과명 = "+department);
+        Console.WriteLine("영어 = "+english+", 물리학 + "+physics+", 미적분학 = "+calculus);
+        Console.WriteLine("총점 = "+score+", 평균 = "+ average);
+        Console.WriteLine("주소 = "+address);
+
     }
 }
