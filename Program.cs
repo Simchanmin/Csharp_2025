@@ -1,99 +1,52 @@
 ﻿using System;
 
-class Car
+namespace Csharp_2025
 {
-    private int speed;
-    private int number;
-    private string carname;
-    private string addr;
-    private string carcolor;
-    private int upspeed;
-    private int downspeed;
-
-    public Car(int speed, int number, string carname, string addr, string carcolor)
+    // 프로그램의 진입점을 포함하는 클래스
+    class Program
     {
-        this.speed = speed;
-        this.number = number;
-        this.carname = carname;
-        this.addr = addr;
-        this.carcolor = carcolor;
-        this.upspeed = 0;
-        this.downspeed = 0;
+        // 프로그램 시작점: 콘솔에 "Hello World!" 출력
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
     }
 
-    public void InputSpeed()
+    // 생성자 체이닝(Constructor Chaining)을 보여주는 예제 클래스
+    class Myclass
     {
-        Console.Write("차의 속도를 입력: ");
-        this.speed = int.Parse(Console.ReadLine());
-    }
+        // private 필드: 외부에서 직접 접근 불가
+        int a, b, c;
 
-    public void InputNumber()
-    {
-        Console.Write("차의 넘버를 입력: ");
-        this.number = int.Parse(Console.ReadLine());
-    }
+        // [1번 생성자] 기본 생성자 - 매개변수 없음
+        // a를 123으로 초기화
+        public Myclass()
+        {
+            this.a = 123;  // this.a는 현재 객체의 a 필드를 의미
+        }
 
-    public void InputCarname()
-    {
-        Console.Write("차의 이름을 입력: ");
-        this.carname = Console.ReadLine();
-    }
+        // [2번 생성자] 매개변수 1개 생성자
+        // : this() → 먼저 위의 기본 생성자를 호출 (a=123 설정됨)
+        // 그 다음 b를 매개변수 값으로 초기화
+        // 실행 순서: 1번 생성자 → 2번 생성자
+        public Myclass(int b) : this()
+        {
+            this.b = b;  // 매개변수 b를 필드 this.b에 할당
+        }
 
-    public void InputAddr()
-    {
-        Console.Write("차 운전자의 주소를 입력: ");
-        this.addr = Console.ReadLine();
-    }
+        // [3번 생성자] 매개변수 2개 생성자
+        // : this(b) → 먼저 위의 1개 매개변수 생성자를 호출
+        //   └─ 그 생성자가 다시 기본 생성자를 호출함
+        // 실행 순서: 1번 생성자 → 2번 생성자 → 3번 생성자
+        // 최종 결과: a=123, b=매개변수b, c=매개변수c
+        public Myclass(int b, int c) : this(b)
+        {
+            this.c = c;  // 매개변수 c를 필드 this.c에 할당
+        }
 
-    public void InputCarcolor()
-    {
-        Console.Write("차의 색깔을 입력: ");
-        this.carcolor = Console.ReadLine();
-    }
-
-    public void PrintInfo()
-    {
-        Console.WriteLine($"speed={this.speed}");
-        Console.WriteLine($"number={this.number}");
-        Console.WriteLine($"carname={this.carname}");
-        Console.WriteLine($"addr={this.addr}");
-        Console.WriteLine($"carcolor={this.carcolor}");
-    }
-
-    public void UpSpeed()
-    {
-        Console.Write("증가시킬 차의 속도 입력: ");
-        this.upspeed = int.Parse(Console.ReadLine());
-        this.speed += this.upspeed;
-        Console.WriteLine($"증가된 차의 속도={this.speed}");
-    }
-
-    public void DownSpeed()
-    {
-        Console.Write("감소시킬 차의 속도 입력: ");
-        this.downspeed = int.Parse(Console.ReadLine());
-        this.speed -= this.downspeed;
-        Console.WriteLine($"감소된 차의 속도 = {this.speed}");
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        Car myCar = new Car(0, 0, "", "", "");
-
-        myCar.InputSpeed();
-        myCar.InputNumber();
-        myCar.InputCarname();
-        myCar.InputAddr();
-        myCar.InputCarcolor();
-        myCar.PrintInfo();
-        myCar.UpSpeed();
-        myCar.UpSpeed();
-        myCar.DownSpeed();
-
-        Console.WriteLine("계속하려면 아무 키나 누르십시오 . . .");
-        Console.ReadKey(true);
+        // 사용 예시:
+        // new Myclass()        → a=123, b=0, c=0
+        // new Myclass(5)       → a=123, b=5, c=0
+        // new Myclass(5, 10)   → a=123, b=5, c=10
     }
 }
