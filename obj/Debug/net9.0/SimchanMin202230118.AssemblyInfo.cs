@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimchanMin202230118")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7b9abc4f23059bae2e09f93cdd0e4e5184561c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e96f9feb51b193d4be3291040deb91734cc01f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimchanMin202230118")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimchanMin202230118")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
